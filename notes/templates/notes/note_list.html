@@ -1,0 +1,11 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+    <div class="col-md-12">
+        {% for note in notes %}
+        <div class="post">
+            <h2><a href="{% url 'note_detail' pk=note.pk %}">{{note.note_title}}</a></h2>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

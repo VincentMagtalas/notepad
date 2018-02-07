@@ -1,0 +1,12 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+    <div class="col-md-8">
+        <h2>{{note.note_title}}</h2>
+        <p>{{note.note_text}}</p>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-default" href="{% url 'note_edit' pk=note.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'note_delete' pk=note.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Notepad</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/notes.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1><a href="/">Notepad</a></h1>
+                </div>
+                <div class="col-md-2">
+                     <a href="{% url 'note_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="content container">
+            <div class="row">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
