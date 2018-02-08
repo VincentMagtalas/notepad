@@ -1,12 +1,25 @@
 {% extends 'notes/base.html' %}
 
 {% block content %}
-    <div class="col-md-8">
-        <h2>{{note.note_title}}</h2>
-        <p>{{note.note_text}}</p>
-    </div>
-    <div class="col-md-2">
-        <a class="btn btn-default" href="{% url 'note_edit' pk=note.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="btn btn-default" href="{% url 'note_delete' pk=note.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+    <div class="row">
+        <div class="col-md-8">
+            <h2>{{note.note_title}}</h2>
+            <p>Published by: {{note.owner}}</p>
+            <p>{{note.note_text}}</p>
+        </div>
+        <div class="col-md-4">
+            {% if user.is_authenticated %}
+                {% if request.user == note.owner %}
+                    <button class="btn btn-default">
+                        <a href="{% url 'note_edit' pk=note.pk %}">EDIT</a>
+                    </button>
+
+                    <button class="btn btn-default">
+                        <a href="{% url 'note_delete' pk=note.pk %}">DELETE</a>
+                    </button>
+                {% endif %}
+            {% endif %}
+
+        </div>
     </div>
 {% endblock %}

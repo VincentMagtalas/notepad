@@ -1,11 +1,30 @@
 {% extends 'notes/base.html' %}
 
 {% block content %}
-    <div class="col-md-12">
-        {% for note in notes %}
-        <div class="post">
-            <h2><a href="{% url 'note_detail' pk=note.pk %}">{{note.note_title}}</a></h2>
+
+    {% if user.is_authenticated %}
+        <div class="row">
+            <div class="col-md-12 well">
+                <h3>Welcome {{user.username}}</h3></br>
+            </div>
+            <div class="col-md-12">
+                <a href="{% url 'note_new' %}" class="btn btn-primary">Add New Note</a><br></br>
+            </div>
         </div>
-    {% endfor %}
+    {% endif%}
+
+
+    <div class="row">
+        <div class="col-md-12">
+            {% for note in notes %}
+                <div class="post">
+                    <h3><a href="{% url 'note_detail' pk=note.pk %}">{{note.note_title}}</a></h3>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+
+
+
+
 {% endblock %}

@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'', include('notes.urls')),
     url(r'^', include('serialize.urls')),
+    url(r'^login/$', auth_views.login,{'template_name': 'registration/login.html'}),
+    url(r'^logout/$', auth_views.logout,{'template_name': 'registration/logged_out.html'} ),
 ]

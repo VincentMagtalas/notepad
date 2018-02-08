@@ -6,7 +6,7 @@ from .models import Note
 
 class NoteAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Title',               {'fields': ['note_title']}),
+        ('Title',   {'fields': ['note_title']}),
         ('Content', {'fields': ['note_text']}),
     ]
     list_display = ('note_title',)

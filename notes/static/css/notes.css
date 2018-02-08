@@ -16,9 +16,11 @@
     margin-left: 40px;
 }
 
+
 h1, h2, h3, h4 {
-    font-family: 'Abril Fatface', cursive;
+    font-family: 'Lato', sans-serif;
 }
+
 
 .date {
     color: #828282;

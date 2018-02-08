@@ -1,10 +1,22 @@
 {% extends 'notes/base.html' %}
 
 {% block content %}
-    <h1>New post</h1>
-    <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
+
+    <div class="row">
+        <div class="col-md-12">
+            {% if user.is_authenticated %}
+                {% if request.user == note.owner %}
+                    <h1>Edit Note</h1>
+                    <form method="POST" class="post-form">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="save btn btn-default">Save</button>
+                    </form>
+                {% else %}
+                    You cannot Edit other's note.
+                {% endif %}
+            {% endif %}
+
+        </div>
+    </div>
 {% endblock %}

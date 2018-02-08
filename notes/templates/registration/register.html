@@ -1,0 +1,54 @@
+
+{% extends 'registration/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4 card">
+
+            <br>
+            <div class="mx-auto" >
+                <h3>Create an Account</h3>
+            </div>
+
+            {% if errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{errors}}
+                </div>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username"  placeholder="Enter Username">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email"  placeholder="Enter Email">
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control"name="password" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Sign Up</button>
+                </div>
+
+                <div class="form-group">
+                    <a href="/login">Already have an account? Click here to Login</a>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+
+{% endblock %}
