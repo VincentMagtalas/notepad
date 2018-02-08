@@ -5,10 +5,11 @@ from django.contrib.auth.models import User
 
 class NoteSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
+    url = serializers.HyperlinkedIdentityField(view_name='serialize-detail', format='html')
 
     class Meta:
         model = Note
-        fields = ('id','note_title', 'note_text','owner')
+        fields = ('url','id','note_title', 'note_text','owner')
 
 
 class UserSerializer(serializers.ModelSerializer):

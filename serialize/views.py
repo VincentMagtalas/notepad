@@ -6,6 +6,7 @@ from rest_framework import status
 from django.http import Http404
 from rest_framework import generics
 from rest_framework import permissions
+from rest_framework.reverse import reverse
 
 from .serializer import NoteSerializer, UserSerializer
 from notes.models import Note
@@ -121,3 +122,10 @@ class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+#tutorial 5
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'snippets': reverse('serialize-list', request=request, format=format),
+        'users': reverse('user-list', request=request, format=format)
+    })
