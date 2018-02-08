@@ -1,11 +1,22 @@
 Directory:
+
 http://127.0.0.1:8000/ - display list of notes
+
 http://127.0.0.1:8000/note/<pk>/ - display detail of note 
 if nakalogin mag display ung edit and delete button
 
+
 http://127.0.0.1:8000/note/new/ - create new note
+
+
+
 http://127.0.0.1:8000/note/<pk>/edit/ - edit notes
+
+
+
 http://127.0.0.1:8000/login/ - user login
+
+
 http://127.0.0.1:8000/register/ - user registration
 
 http://127.0.0.1:8000/serialize/ - display list of notes
