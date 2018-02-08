@@ -19,6 +19,8 @@ http://127.0.0.1:8000/login/ - user login
 
 http://127.0.0.1:8000/register/ - user registration
 
+http://127.0.0.1:8000/root/ - API Root
+
 http://127.0.0.1:8000/serialize/ - display list of notes
 if nakalogin pwedeng mag insert ng entry
 
